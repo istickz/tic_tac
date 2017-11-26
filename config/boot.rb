@@ -4,15 +4,27 @@ require 'bundler/setup' # Set up gems listed in the Gemfile.
 require 'telegram/bot'
 require 'active_record'
 
-# Libs
-Dir[File.join(__dir__, 'lib', '*.rb')].each {|file| require file }
 
-# Initializers
-Dir[File.join(__dir__, 'config', 'initializers', '*.rb')].each {|file| require file }
+# Libs
+require './lib/database_connector'
+require './lib/app_configurator'
+require './lib/message_responder'
+
+require './config/initializers/dotenv'
+require './config/initializers/configure'
 
 # Models
-Dir[File.join(__dir__, 'models', '*.rb')].each {|file| require file }
+require './models/user'
+require './models/game'
+require './models/game_result'
+require './models/board'
+require './models/player'
+require './models/telegram_board'
 
+
+
+
+require 'byebug'
 
 
 
