@@ -5,11 +5,11 @@ class Game < ActiveRecord::Base
 
 
   def player1
-    Player.new(users.first, '❌')
+    Player.new(users.order(:id).first, '❌')
   end
 
   def player2
-    Player.new(users.second, '⭕')
+    Player.new(users.order(:id).second, '⭕')
   end
 
   def players
