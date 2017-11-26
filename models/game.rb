@@ -95,7 +95,7 @@ class Game < ActiveRecord::Base
     users_count = users.count
     game_user = users.find_by(id: user.id)
     return user if game_user
-    self.users << user if users_count < 3
+    self.users << user if users_count <= 2
     user
   end
 
