@@ -29,7 +29,7 @@ class Game < ActiveRecord::Base
   end
 
   def make_move(player, index)
-    if next_player.user == player
+    if next_player.user.id == player.id
       board.place_symbol(index, next_player.game_symbol)
       self.data['board'] = board.cells
       self.data_will_change!
