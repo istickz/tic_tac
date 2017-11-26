@@ -1,0 +1,6 @@
+database.yml
+secrets.yml
+.env
+/log/*
+!/log/.keep
+!/tmp/.keep

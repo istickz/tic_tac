@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require './config/boot'
+
+APP_LOGGER.debug 'Starting telegram bot'
+
+Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN']) do |bot|
+  begin
+    bot.listen do |message|
+      options = {bot: bot, message: message}
+
+      APP_LOGGER.debug "@#{message.from.username}: #{message.inspect}"
+
+      MessageResponder.new(options).respond
+    end
+  rescue Telegram::Bot::Exceptions::ResponseError => e
+    retry
+  end
+end

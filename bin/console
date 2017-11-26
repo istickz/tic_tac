@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require './config/boot'
+
+require 'pry'
+Pry.start
+
