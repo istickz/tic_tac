@@ -1,2 +1,0 @@
-# Logfile created on 2017-11-26 07:57:29 +0300 by logger.rb/56815
-D, [2017-11-26T08:01:00.553268 #25704] DEBUG -- :   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
   end
 
   def player2
-    Player.new(users.second, '⭕️')
+    Player.new(users.second, '⭕')
   end
 
   def players
@@ -83,8 +83,12 @@ class Game < ActiveRecord::Base
     return player1 if new?
     player1_moves = board.cells.count {|cell| cell == player1.game_symbol}
     player2_moves = board.cells.count {|cell| cell == player2.game_symbol}
-    return player1 if player1_moves < player2_moves
-    player2
+    return player1 if player1_moves <= player2_moves
+    if player1_moves <= player2_moves
+      player1
+    else
+      player2
+    end
   end
 
   def pretend_player(user)
