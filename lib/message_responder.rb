@@ -37,13 +37,14 @@ class MessageResponder
 
               bot.api.edit_message_text(
                 inline_message_id: message.inline_message_id,
-                text:  game.status,
+                text: game.status,
                 reply_markup: TelegramBoard.build(game.data['board'])
               )
+              bot.api.answer_callback_query(callback_query_id: message.id)
             else
-              byebug
               bot.api.answer_callback_query(
-                callback_query_id: message.id
+                callback_query_id: message.id,
+                text: 'This game is already played'
               )
             end
         end
