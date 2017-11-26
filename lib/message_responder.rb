@@ -40,6 +40,11 @@ class MessageResponder
                 text:  game.status,
                 reply_markup: TelegramBoard.build(game.data['board'])
               )
+            else
+              byebug
+              bot.api.answer_callback_query(
+                callback_query_id: message.id
+              )
             end
         end
 
